@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("hello world");
+
+        function getHumanChoice(){
+            let hc = prompt("Choose between rock, paper & scissor:");
+            hc = hc.toLowerCase();
+            return hc;
+        }
+
+
+        function getComputerChoice(){
+            let num = Math.floor(Math.random()*3);
+
+            if(num==0){
+                console.log("Computer chose rock");
+                return "rock";
+            }
+                
+            else if(num==1){
+                console.log("Computer chose paper");
+                return "paper"
+                
+            }
+            else{
+                console.log("Computer chose scissor");
+                return "scissor";
+                
+            }
+        }
+
+
+        function playRound(humanChoice,computerChoice){
+            if(humanChoice=="rock"){
+                if(computerChoice=="rock"){
+                return "t";
+                }
+                else if(computerChoice=="paper"){
+                return "l";
+                }
+                else{
+                    return "w";
+                }
+            }
+
+            else if(humanChoice=="paper"){
+                if(computerChoice=="paper"){
+                return "t";
+                }
+                else if(computerChoice=="scissor"){
+                return "l";
+                }
+                else{
+                    return "w";
+                }
+            }
+
+            else{
+                if(computerChoice=="scissor"){
+                return "t";
+                }
+                else if(computerChoice=="rock"){
+                return "l";
+                }
+                else{
+                    return "w";
+                }
+            }
+
+        }
+
+        function playGame(){
+            let computerScore = 0;
+            let humanScore = 0;
+
+            for(let i=1; i<=5; i++){
+                let humanChoice = getHumanChoice();
+                let computerChoice = getComputerChoice();
+
+                let status = playRound(humanChoice,computerChoice);
+                if(status=="t"){
+                    console.log("The " +i+ " match is tied");
+                }
+                else if(status=="w"){
+                    console.log("You have won the "+i+ " match");
+                    humanScore++;
+                }
+                else{
+                    console.log("You have lost the "+i+ " match");
+                    computerScore++;
+                }
+            }
+            console.log("Your total score is: " +humanScore);
+
+        }
+
+        playGame();
+    
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
