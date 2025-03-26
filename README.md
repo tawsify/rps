@@ -1,1 +1,1 @@
-# rps
+basic ol' rock, paper & scissor
